@@ -1,0 +1,24 @@
+Line	Location	Object Code		Source Statement
+5	 0000		                   CODE   	SEGMENT
+10	 0000		                   Mycode   	PROC       NEAR
+15				                        ASSUME    CS:CODE
+20				                        ORG    	0
+25	 0000 	47 72 65 65 6E 20	   Msg      	BYTE   	'Green '
+30	 0006 	47 72 65 65 6E 20		        BYTE   	'Green '
+35	 000C 	47 72 61 73 73 20		        BYTE   	'Grass '
+40	 0012 	48 6F 6D 65		                BYTE   	'Home'
+45	 0016 	0A 0D 24	           LF      	BYTE   	0AH, 0DH, '$'
+50	 0019 	2E A1 0000 R		                MOV    	AX,WORD PTR Msg
+55	 001D 	8E D8		                        MOV    	DS,AX
+60	 001F 	2E 8B 16 0000 R		        MOV    	DX,WORD PTR Msg
+65	 0024 	E8 0004		                        CALL   	DispMsg
+70	 0027 	B4 4C		                        MOV     AH,4CH
+75	 0029 	CD 21		                        INT    	21H
+80	 002B		                   Mycode  	ENDP
+85	 002B		                   DispMsg 	PROC   	NEAR
+90	 002B 	B4 09		                        MOV    	AH,09H
+95	 002D 	CD 21		                        INT    	21H
+100	 002F 	C3		                        RET
+105	 0030		                   DispMsg 	ENDP
+110	 0030		                   CODE    	ENDS
+115				                        END    	Mycode
